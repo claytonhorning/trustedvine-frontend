@@ -1,7 +1,7 @@
-import NextAuth from "next-auth";
+import NextAuth, { NextAuthOptions } from "next-auth";
 import FacebookProvider from "next-auth/providers/facebook";
 
-export const handler = NextAuth({
+const authOptions: NextAuthOptions = {
   providers: [
     FacebookProvider({
       clientId: process.env.FACEBOOK_CLIENT_ID ?? "",
@@ -39,6 +39,6 @@ export const handler = NextAuth({
       return session;
     },
   },
-});
-
+};
+const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };

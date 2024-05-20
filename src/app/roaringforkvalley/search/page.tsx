@@ -35,6 +35,7 @@ export default async function Search({
         return (
           <Link
             href={`/roaringforkvalley/provider/${contractor?._id}`}
+            key={contractor._id}
           >
             <Contractor
               name={contractor.name}
