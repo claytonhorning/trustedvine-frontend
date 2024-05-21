@@ -1,5 +1,5 @@
 import { IconAdjustmentsHorizontal } from "@tabler/icons-react";
-import Service from "@/app/components/service";
+import Service from "@/components/service";
 import { redirect } from "next/navigation";
 
 async function getData() {

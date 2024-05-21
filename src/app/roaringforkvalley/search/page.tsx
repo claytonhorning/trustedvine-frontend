@@ -1,4 +1,4 @@
-import Contractor from "@/app/components/contractor";
+import Contractor from "@/components/contractor";
 import Link from "next/link";
 
 type props = {

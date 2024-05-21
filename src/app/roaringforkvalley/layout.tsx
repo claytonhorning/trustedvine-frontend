@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Sidebar from "@/app/components/ui/sidebar";
+import Sidebar from "@/components/ui/sidebar";
 import { getServerSession } from "next-auth";
 
 export const metadata: Metadata = {
