@@ -1,4 +1,4 @@
-import Contractor from "@/components/contractor";
+import Contractor from "@/app/components/contractor";
 import Link from "next/link";
 
 type props = {
@@ -6,12 +6,9 @@ type props = {
 };
 
 async function getData(category: String) {
-  const options = {
+  const options: RequestInit = {
     method: "GET",
-    // headers: {
-    //   Authorization:
-    //     "Bearer 14e911851b8b87ca2d3d2ba4cbd2aab8bce5fad9e5b263ea56326a7413eaccc5adb23e51dceb2dea273742eebc2a342e30fda1f8619a836d4d78f42874ae26c15a9eb060e6c888fe0040a78ca490741d8a54be631c798f108886d09cc0d365d0c74d9cdf700014e3073f2459db51c7adbe3cb2d385de9c6c56f1404968e17048",
-    // },
+    cache: "no-store",
   };
   const res = await fetch(
     `${process.env.TRUSTEDVINE_API_URL}/providers?category=${category}`,

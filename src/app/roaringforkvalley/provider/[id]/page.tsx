@@ -1,4 +1,4 @@
-import ContractorListing from "@/components/contractorListing";
+import ContractorListing from "@/app/components/contractorListing";
 
 type props = {
   params: any;
