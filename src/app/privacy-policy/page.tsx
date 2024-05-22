@@ -12,7 +12,8 @@ export default function PrivacyPolicy() {
         responsibly. This Privacy Policy explains how we
         collect, use, and share information about you when
         you use our website, TrustedVine.com, and our
-        associated services (collectively, "Services").
+        associated services (collectively,
+        &quot;Services&quot;).
       </p>
 
       <h2 className="text-xl font-medium pt-4">

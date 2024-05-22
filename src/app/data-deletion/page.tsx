@@ -67,9 +67,9 @@ export default function DataDeletion() {
       <h2>Contact Us</h2>
       <p>
         If you have any questions about the data deletion
-        process, or need further assistance, please don't
-        hesitate to contact us using the details provided
-        above. We are here to help.
+        process, or need further assistance, please
+        don&apos;t hesitate to contact us using the details
+        provided above. We are here to help.
       </p>
     </div>
   );
