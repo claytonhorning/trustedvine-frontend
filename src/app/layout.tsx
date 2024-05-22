@@ -15,11 +15,12 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <link
-        rel="icon"
-        href=".../public/favicon.ico"
-        sizes="any"
-      />
+      <head>
+        <meta
+          name="facebook-domain-verification"
+          content="2qsqvglvgjf7ex1rh4tsa8pol05zua"
+        />
+      </head>
       <body className={inter.className}>
         <SessionProvider session={session}>
           {children}
