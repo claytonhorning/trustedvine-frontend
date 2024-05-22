@@ -91,10 +91,10 @@ export default function Sidebar() {
     <section className="sticky top-0 hidden md:flex sm:w-52 md:w-80 h-screen bg-[#132A13] p-4 flex-col justify-between">
       <div className="flex flex-col space-y-4">
         <Image
-          src="/trustedvine.png"
+          src="/logo.png"
           alt="logo"
-          height={180}
-          width={180}
+          height={150}
+          width={150}
         />
 
         <div className="flex flex-row items-center pb-3">
