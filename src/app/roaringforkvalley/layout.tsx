@@ -6,7 +6,6 @@ export const metadata: Metadata = {
   title: "TrustedVine | Roaring Fork Valley",
   description:
     "Find vetted home service and wellness professionals trusted by your network.",
-  icons: { icon: "/favicon.ico" },
 };
 
 export default function RootLayout({
