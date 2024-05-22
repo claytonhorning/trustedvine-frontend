@@ -72,7 +72,7 @@ const ContractorListing: React.FC<
   console.log(recommendations.length);
 
   return (
-    <div className="flex flex-row gap-6 justify-between min-h-screen">
+    <div className="flex flex-row gap-6 justify-between">
       <section className="w-8/12">
         <div className="flex flex-row items-center ">
           <h2 className="text-black font-medium text-3xl mr-2">
@@ -246,8 +246,8 @@ const ContractorListing: React.FC<
           </div>
         </div>
       </section>
-      <section className="w-80 mt-3 h-full">
-        <div className="border-2 border-[#31572C] rounded-md shadow-green-800 shadow-sm overflow-auto max-h-3/4">
+      <section className="w-80 mt-3">
+        <div className="border-2 border-[#31572C] rounded-md shadow-green-800 shadow-sm overflow-auto max-h-[600px]">
           {uniqueRecommendations?.map(
             (recommendation, index) => {
               return (

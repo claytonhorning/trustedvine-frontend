@@ -34,12 +34,13 @@ export default function AutocompleteSearch({
         items={items}
         onSearch={handleOnSearch}
         onHover={handleOnHover}
+        onSelect={handleOnSelect}
         onFocus={handleOnFocus}
         autoFocus
         formatResult={formatResult}
         placeholder="Search for a service"
         styling={{
-          backgroundColor: "white",
+          backgroundColor: "#F1F1F1",
           borderRadius: "5px",
         }}
       />

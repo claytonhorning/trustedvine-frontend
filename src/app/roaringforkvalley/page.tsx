@@ -4,9 +4,8 @@ import { redirect } from "next/navigation";
 import AutocompleteSearch from "@/components/ui/AutocompleteSearch";
 
 async function getData() {
-  const options: RequestInit = {
+  const options = {
     method: "GET",
-    cache: "no-store",
   };
   const res = await fetch(
     `${process.env.TRUSTEDVINE_API_URL}/categories`,
@@ -64,10 +63,6 @@ export default async function FindLocalContractors() {
               handleOnSelect={handleOnSelect}
               items={items}
             />
-            <input
-              type="hidden"
-              name="search" // Hidden input to capture the search term
-            />
           </div>
           {/* <input
             type="search"
@@ -76,10 +71,10 @@ export default async function FindLocalContractors() {
             placeholder="Search for a service "
             aria-label="Search"
           /> */}
-          <button className="flex flex-row items-center bg-gray-200 text-slate-600 px-4 rounded-md mr-2">
+          {/* <button className="flex flex-row items-center bg-gray-200 text-slate-600 px-4 rounded-md mr-2">
             <IconAdjustmentsHorizontal />
             Filter
-          </button>
+          </button> */}
           <button
             type="submit"
             className="flex flex-row items-center bg-[#4F772D] px-4 rounded-md text-white"
