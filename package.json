@@ -18,7 +18,8 @@
     "next-auth": "^4.24.7",
     "payload": "^2.16.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-search-autocomplete": "^8.5.2"
   },
   "devDependencies": {
     "@types/node": "^20",
