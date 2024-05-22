@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "TrustedVine | Roaring Fork Valley",
   description:
     "Find vetted home service and wellness professionals trusted by your network.",
+  icons: { icon: "/favicon.ico" },
 };
 
 export default function RootLayout({
@@ -14,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex w-screen">
+    <div className="flex">
       <Sidebar />
       <main className="px-10 py-10 block container mx-auto max-w-7xl">
         {children}

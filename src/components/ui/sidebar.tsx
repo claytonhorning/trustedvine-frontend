@@ -97,7 +97,7 @@ export default function Sidebar() {
           width={150}
         />
 
-        <div className="flex flex-row items-center pb-3">
+        <div className="flex flex-row items-center">
           <IconMapPin
             size={20}
             color="#ECF39E"
