@@ -4,8 +4,9 @@ import { redirect } from "next/navigation";
 import AutocompleteSearch from "@/components/ui/AutocompleteSearch";
 
 async function getData() {
-  const options = {
+  const options: RequestInit = {
     method: "GET",
+    cache: "no-store",
   };
   const res = await fetch(
     `${process.env.TRUSTEDVINE_API_URL}/categories`,

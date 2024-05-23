@@ -54,7 +54,7 @@ const Contractor: React.FC<IContractorProps> = ({
       <div className="flex flex-col mt-2">
         <div className="flex flex-row items-center">
           <Image
-            src={avatar}
+            src={logo}
             width={45}
             height={45}
             alt="Picture of the author"

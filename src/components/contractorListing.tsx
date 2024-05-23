@@ -68,9 +68,6 @@ const ContractorListing: React.FC<
 
   const uniqueRecommendations =
     filterUniqueRecommendations(recommendations);
-
-  console.log(recommendations.length);
-
   return (
     <div className="flex flex-row gap-6 justify-between">
       <section className="w-8/12">

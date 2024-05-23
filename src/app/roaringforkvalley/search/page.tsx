@@ -64,7 +64,9 @@ export default async function Search({
                 verified={false}
                 numYears={0}
                 logo={
-                  "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250"
+                  contractor?.url !== ""
+                    ? contractor?.url
+                    : "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250"
                 }
                 id={contractor._id}
               />
