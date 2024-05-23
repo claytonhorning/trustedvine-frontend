@@ -5,6 +5,15 @@ type props = {
   searchParams: any;
 };
 
+function toTitleCase(str: any) {
+  return str.replace(/\w\S*/g, function (txt: any) {
+    return (
+      txt.charAt(0).toUpperCase() +
+      txt.substr(1).toLowerCase()
+    );
+  });
+}
+
 async function getData(category: String) {
   const options: RequestInit = {
     method: "GET",
@@ -38,7 +47,7 @@ export default async function Search({
   return (
     <div className="text-black">
       <h2 className="text-2xl font-medium pb-1">
-        {searchParams?.category} Providers
+        {toTitleCase(searchParams?.category)} Providers
       </h2>
       <div className="flex flex-row space-x-1 pb-6 text-gray-600">
         <p>{data?.length} Providers</p>
@@ -64,9 +73,9 @@ export default async function Search({
                 verified={false}
                 numYears={0}
                 logo={
-                  contractor?.url !== ""
+                  contractor?.url !== undefined
                     ? contractor?.url
-                    : "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250"
+                    : "/profile-user.png"
                 }
                 id={contractor._id}
               />

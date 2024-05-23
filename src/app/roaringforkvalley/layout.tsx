@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <div className="flex">
       <Sidebar />
-      <main className="px-10 py-10 block container mx-auto max-w-7xl">
+      <main className="px-10 py-4 block container mx-auto max-w-7xl">
         {children}
       </main>
     </div>

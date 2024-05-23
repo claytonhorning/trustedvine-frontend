@@ -41,65 +41,28 @@ export default async function FindLocalContractors() {
     name: item.name,
   }));
 
-  const handleOnSelect = async (item: any) => {
-    "use server";
-    redirect(
-      `/roaringforkvalley/search?category=${item.name}`
-    );
-  };
-
   return (
     <div className="flex flex-col">
       <h1 className="text-black text-2xl font-medium">
         Search Roaring Fork Valley Businesses
       </h1>
-
-      <div className="-z-1">
-        <form
-          className="flex flex-row mt-4"
-          action={search}
-        >
-          <div className="z-10">
-            <AutocompleteSearch
-              handleOnSelect={handleOnSelect}
-              items={items}
-            />
-          </div>
-          {/* <input
-            type="search"
-            name="search"
-            className="bg-gray-200 w-5/12 h-12 rounded-md placeholder:text-slate-600 px-4 text-black mr-2"
-            placeholder="Search for a service "
-            aria-label="Search"
-          /> */}
-          {/* <button className="flex flex-row items-center bg-gray-200 text-slate-600 px-4 rounded-md mr-2">
-            <IconAdjustmentsHorizontal />
-            Filter
-          </button> */}
-          <button
-            type="submit"
-            className="flex flex-row items-center bg-[#4F772D] px-4 rounded-md text-white"
-          >
-            Search
-          </button>
-        </form>
-        <div className="flex flex-col">
-          <h1 className="text-black text-2xl font-medium mt-8 mb-4">
-            All Service Categories
-          </h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {data?.map((category: any) => {
-              return (
-                <Service
-                  name={category.name}
-                  num={category.providerCount}
-                  img={category.bannerImage}
-                  slug={`/roaringforkvalley/search?category=${category.slug}`}
-                  key={category._id}
-                />
-              );
-            })}
-          </div>
+      <AutocompleteSearch items={items} />
+      <div className="flex flex-col">
+        <h1 className="text-black text-2xl font-medium mt-8 mb-4">
+          All Service Categories
+        </h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {data?.map((category: any) => {
+            return (
+              <Service
+                name={category.name}
+                num={category.providerCount}
+                img={category.bannerImage}
+                slug={`/roaringforkvalley/search?category=${category.slug}`}
+                key={category._id}
+              />
+            );
+          })}
         </div>
       </div>
     </div>
