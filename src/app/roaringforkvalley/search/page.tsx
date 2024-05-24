@@ -75,8 +75,8 @@ export default async function Search({
                 logo={
                   contractor?.filename !== null &&
                   contractor?.filename !== undefined &&
-                  contractor.filename !== ""
-                    ? `http://localhost:3002/media/${contractor.filename}`
+                  contractor?.filename !== ""
+                    ? `${process.env.TRUSTEDVINE_ADMIN_URL}/media/${contractor?.filename}`
                     : "/profile-user.png"
                 }
                 id={contractor._id}

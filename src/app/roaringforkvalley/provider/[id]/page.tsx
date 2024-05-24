@@ -45,7 +45,7 @@ export default async function Listing({ params }: props) {
           data?.filename !== null &&
           data?.filename !== undefined &&
           data.filename !== ""
-            ? `http://localhost:3002/media/${data.filename}`
+            ? `${process.env.TRUSTEDVINE_ADMIN_URL}/media/${data?.filename}`
             : "/profile-user.png"
         }
         city={data?.city}
