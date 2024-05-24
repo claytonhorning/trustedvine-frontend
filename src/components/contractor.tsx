@@ -52,13 +52,16 @@ const Contractor: React.FC<IContractorProps> = ({
         </div>
       </div>
       <div className="flex flex-col mt-2">
-        <div className="flex flex-row items-center">
+        <div className="flex h-12">
           <Image
             src={logo}
-            width={45}
-            height={45}
+            height={50}
+            width={50}
             alt="Picture of the author"
-            className="rounded-full mr-3"
+            style={{
+              objectFit: "contain",
+            }}
+            className="rounded-full mr-3 shadow-md shadow-slate-400"
           />
           <h3 className="text-md font-semibold">{name}</h3>
         </div>
