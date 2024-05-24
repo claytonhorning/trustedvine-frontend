@@ -73,8 +73,10 @@ export default async function Search({
                 verified={false}
                 numYears={0}
                 logo={
-                  contractor?.url !== undefined
-                    ? contractor?.url
+                  contractor?.filename !== null &&
+                  contractor?.filename !== undefined &&
+                  contractor.filename !== ""
+                    ? `http://localhost:3002/media/${contractor.filename}`
                     : "/profile-user.png"
                 }
                 id={contractor._id}

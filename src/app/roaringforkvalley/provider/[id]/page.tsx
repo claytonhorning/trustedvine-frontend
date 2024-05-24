@@ -41,6 +41,13 @@ export default async function Listing({ params }: props) {
         numRecs={countUniqueRecommendations(
           data?.recommendations
         )}
+        logo={
+          data?.filename !== null &&
+          data?.filename !== undefined &&
+          data.filename !== ""
+            ? `http://localhost:3002/media/${data.filename}`
+            : "/profile-user.png"
+        }
         city={data?.city}
         recommendations={data?.recommendations}
         phone={

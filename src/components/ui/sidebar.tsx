@@ -21,7 +21,7 @@ import {
 
 function AuthButton() {
   const { data: session } = useSession();
-  console.log(session);
+
   if (session) {
     return (
       <div className="flex flex-row justify-between w-full">
@@ -86,7 +86,6 @@ export default function Sidebar() {
     setActiveItem(item);
   };
 
-  console.log(session?.user);
   return (
     <section className="sticky top-0 hidden md:flex sm:w-52 md:w-80 h-screen bg-[#132A13] px-4 py-5 flex-col justify-between">
       <div className="flex flex-col space-y-4">

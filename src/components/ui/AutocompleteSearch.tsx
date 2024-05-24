@@ -19,13 +19,9 @@ export default function AutocompleteSearch({ items }: any) {
     );
   };
 
-  const handleOnHover = (result: any) => {
-    console.log(result);
-  };
+  const handleOnHover = (result: any) => {};
 
-  const handleOnFocus = () => {
-    console.log("Focused");
-  };
+  const handleOnFocus = () => {};
 
   const formatResult = (item: any) => (
     <>
@@ -40,10 +36,6 @@ export default function AutocompleteSearch({ items }: any) {
       </span>
     </>
   );
-
-  useEffect(() => {
-    console.log(searchField);
-  }, [searchField]);
 
   const handleOnSelect = async (item: any) => {
     router.push(

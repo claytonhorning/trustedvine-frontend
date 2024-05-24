@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    domains: ["localhost:3002"],
     remotePatterns: [
       {
         protocol: "https",
@@ -29,6 +30,12 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "platform-lookaside.fbsbx.com",
+      },
+      {
+        protocol: "http", // Make sure the protocol matches what you use locally (http for local development usually)
+        hostname: "localhost",
+        port: "3002", // Specify the port if your local development server uses a specific port
+        pathname: "**", // This will match any path
       },
     ],
   },
