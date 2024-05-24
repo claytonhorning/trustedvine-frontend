@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["localhost:3002"],
     remotePatterns: [
       {
         protocol: "https",
@@ -36,6 +35,10 @@ const nextConfig = {
         hostname: "localhost",
         port: "3002", // Specify the port if your local development server uses a specific port
         pathname: "**", // This will match any path
+      },
+      {
+        protocol: "https",
+        hostname: "admin.trustedvine.com",
       },
     ],
   },

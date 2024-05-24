@@ -44,7 +44,7 @@ export default async function Listing({ params }: props) {
         logo={
           data?.filename !== null &&
           data?.filename !== undefined &&
-          data.filename !== ""
+          data?.filename !== ""
             ? `${process.env.TRUSTEDVINE_ADMIN_URL}/media/${data?.filename}`
             : "/profile-user.png"
         }
