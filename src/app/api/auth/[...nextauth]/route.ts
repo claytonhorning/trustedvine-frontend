@@ -9,7 +9,7 @@ const authOptions: NextAuthOptions = {
         process.env.FACEBOOK_CLIENT_SECRET ?? "",
       authorization: {
         params: {
-          scope: "email, public_profile, user_friends",
+          scope: "openid email",
         },
       },
     }),

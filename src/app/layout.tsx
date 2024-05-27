@@ -12,6 +12,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const session = await getServerSession();
+  console.log(session);
 
   return (
     <html lang="en">
@@ -20,6 +21,10 @@ export default async function RootLayout({
           name="facebook-domain-verification"
           content="2qsqvglvgjf7ex1rh4tsa8pol05zua"
         />
+        <script
+          type="text/javascript"
+          src="/static/chat.js"
+        ></script>
       </head>
       <body className={inter.className}>
         <SessionProvider session={session}>
