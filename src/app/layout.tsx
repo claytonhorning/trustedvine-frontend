@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { getServerSession } from "next-auth";
 import SessionProvider from "../components/SessionProvider";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,6 +32,7 @@ export default async function RootLayout({
           {children}
         </SessionProvider>
       </body>
+      <GoogleAnalytics gaId="G-L4WS5RBC38" />
     </html>
   );
 }

@@ -11,6 +11,7 @@
   "dependencies": {
     "@clerk/clerk-js": "^5.4.0",
     "@clerk/nextjs": "^5.0.12",
+    "@next/third-parties": "^14.2.3",
     "@payloadcms/db-mongodb": "^1.5.1",
     "@tabler/icons-react": "^3.3.0",
     "classnames": "^2.5.1",
