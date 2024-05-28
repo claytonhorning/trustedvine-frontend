@@ -68,7 +68,7 @@ export default async function Search({
                 numRecs={
                   contractor.numberOfUniqueRecommenders
                 }
-                city={"Unknown"}
+                city={contractor?.city}
                 mostRecommended={false}
                 verified={false}
                 numYears={0}
