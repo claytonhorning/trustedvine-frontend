@@ -4,6 +4,7 @@ import "./globals.css";
 import { getServerSession } from "next-auth";
 import SessionProvider from "../components/SessionProvider";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,7 +14,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const session = await getServerSession();
-  console.log(session);
 
   return (
     <html lang="en">
@@ -22,10 +22,10 @@ export default async function RootLayout({
           name="facebook-domain-verification"
           content="2qsqvglvgjf7ex1rh4tsa8pol05zua"
         />
-        <script
+        <Script
           type="text/javascript"
           src="/static/chat.js"
-        ></script>
+        ></Script>
       </head>
       <body className={inter.className}>
         <SessionProvider session={session}>
