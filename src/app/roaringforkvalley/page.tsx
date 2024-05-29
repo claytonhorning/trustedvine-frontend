@@ -51,7 +51,7 @@ export default async function FindLocalContractors() {
         <h1 className="text-black text-2xl font-medium mt-8 mb-4">
           All Service Categories
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
           {data?.map((category: any) => {
             return (
               <Service

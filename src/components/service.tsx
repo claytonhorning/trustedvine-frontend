@@ -29,7 +29,9 @@ const Service: React.FC<IServiceProps> = ({
             }}
           />
           <div className="flex flex-col h-32 items-center justify-center text-white z-10">
-            <h3 className="text-2xl font-medium">{name}</h3>
+            <h3 className="text-2xl font-medium text-center">
+              {name}
+            </h3>
             <p className="text-sm">{num} Providers</p>
           </div>
         </div>

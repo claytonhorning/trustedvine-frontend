@@ -1,4 +1,7 @@
 import ContractorListing from "@/components/contractorListing";
+import Link from "next/link";
+import Contractor from "@/components/contractor";
+import { shuffle } from "lodash";
 
 type props = {
   params: any;
@@ -21,8 +24,6 @@ export default async function Listing({ params }: props) {
     return res.json();
   }
 
-  const data = await getData();
-
   function countUniqueRecommendations(data: any) {
     const uniqueRecommenderIds = new Set();
     data.forEach((recommendation: any) => {
@@ -32,6 +33,64 @@ export default async function Listing({ params }: props) {
     });
     return uniqueRecommenderIds.size;
   }
+
+  const data = await getData();
+
+  async function getOtherProviders() {
+    const options: RequestInit = {
+      method: "GET",
+      cache: "no-store",
+    };
+    const response = await fetch(
+      `${process.env.TRUSTEDVINE_API_URL}/providers/?category=${data?.categories[0]}`,
+      options
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    let providers = await response.json();
+    providers = providers.filter(
+      (provider: any) => provider._id !== data._id
+    );
+
+    // Shuffle to randomize the order
+    providers = shuffle(providers);
+
+    const targetRecommendationCount =
+      countUniqueRecommendations(data?.recommendations);
+    const tolerance = 4; // Adjust tolerance if necessary
+
+    // Filter providers within the recommendation count tolerance
+    let similarProviders = providers.filter(
+      (provider: any) => {
+        const withinRange =
+          provider.numberOfUniqueRecommenders >=
+            targetRecommendationCount - tolerance &&
+          provider.numberOfUniqueRecommenders <=
+            targetRecommendationCount + tolerance;
+
+        return withinRange;
+      }
+    );
+
+    // If not enough similar providers, add others to ensure there are always three suggestions
+    if (similarProviders.length < 3) {
+      const additionalProviders = providers
+        .filter(
+          (provider: any) =>
+            !similarProviders.includes(provider)
+        )
+        .slice(0, 3 - similarProviders.length);
+      similarProviders = [
+        ...similarProviders,
+        ...additionalProviders,
+      ];
+    }
+
+    return similarProviders.slice(0, 3);
+  }
+
+  const otherProviderData = await getOtherProviders();
 
   return (
     <div>
@@ -64,12 +123,35 @@ export default async function Listing({ params }: props) {
       <h4 className="mt-10 text-black text-large font-semibold">
         Browse Other Plumbers
       </h4>
-      <div className="mt-4 grid grid-cols-3 gap-4">
-        {/* <Contractor />
-        <Contractor />
-        <Contractor />
-        <Contractor />
-        <Contractor /> */}
+      <div className="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-4 pb-10">
+        {otherProviderData?.map((contractor: any) => {
+          return (
+            <Link
+              href={`/roaringforkvalley/provider/${contractor?._id}`}
+              key={contractor._id}
+            >
+              <Contractor
+                name={contractor.name}
+                avatar={"/profile-user.png"}
+                numRecs={
+                  contractor.numberOfUniqueRecommenders
+                }
+                city={contractor?.city}
+                mostRecommended={false}
+                verified={false}
+                numYears={0}
+                logo={
+                  contractor?.filename !== null &&
+                  contractor?.filename !== undefined &&
+                  contractor?.filename !== ""
+                    ? `${process.env.TRUSTEDVINE_ADMIN_URL}/media/${contractor?.filename}`
+                    : "/profile-user.png"
+                }
+                id={contractor._id}
+              />
+            </Link>
+          );
+        })}
       </div>
     </div>
   );

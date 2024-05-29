@@ -3,6 +3,9 @@ import {
   IconSpeakerphone,
   IconShieldCheck,
   IconBookmark,
+  IconPhone,
+  IconMail,
+  IconWorldWww,
 } from "@tabler/icons-react";
 import Image from "next/image";
 import Contractor from "./contractor";
@@ -81,14 +84,14 @@ const ContractorListing: React.FC<
     filterUniqueRecommendations(recommendations);
 
   return (
-    <div className="flex flex-row gap-6 justify-between">
-      <section className="w-8/12">
+    <div className="flex flex-col lg:flex-row gap-6 justify-between">
+      <section>
         <div className="flex flex-row items-center mb-2">
           <Image
             src={logo}
             width={45}
             height={45}
-            alt="Picture of the author"
+            alt={`${name} Company Logo`}
             className="rounded-full mr-3"
           />
           <h2 className="text-black font-medium text-3xl mr-2">
@@ -114,156 +117,53 @@ const ContractorListing: React.FC<
               {city == undefined ? "Unknown" : city}
             </p>
           </div>
-          {/* <div className="flex flex-row gap-2">
-            <div className="flex flex-row self-start border-2 p-3 border-purple-700 rounded-md shadow-sm shadow-purple-400">
-              <div className="flex flex-col">
-                <div className="flex flex-row items-center">
-                  <IconSpeakerphone
-                    size={18}
-                    className="mr-1 text-purple-700"
-                  />
-                  <p className="text-purple-700 text-sm">
-                    Most Recommended by Friends
-                  </p>
-                </div>
-
-                <div className="flex flex-row text-gray-700 mt-2 items-center">
-                  <Image
-                    src={"/leo.jpeg"}
-                    width={25}
-                    height={25}
-                    alt="Picture of the author"
-                    className="rounded-full mr-3"
-                  />
-
-                  <p className="text-xs">
-                    Leontina G., Susan L., and Cameron H.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-row self-start border-2 p-3 border-blue-600 rounded-md shadow-sm shadow-blue-600">
-              <div className="flex flex-col">
-                <div className="flex flex-row items-center">
-                  <IconShieldCheck
-                    size={18}
-                    className="mr-1 text-blue-600"
-                  />
-                  <p className="text-blue-600 text-sm">
-                    Verified
-                  </p>
-                </div>
-
-                <div className="flex flex-row text-gray-700 mt-2">
-                  <p className="text-xs">
-                    Licensed, Insured, and Background
-                    Checked
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div> */}
         </div>
         <div className="flex flex-col mt-5">
           <h4 className="text-black text-large font-semibold">
             Contact Information
           </h4>
-          <div className="flex flex-row mt-2 gap-4">
-            <p className="text-sm text-black font-medium">
-              Phone:
-              <a
-                href={`tel:${phone}`}
-                className="text-[#4F772D] ml-1"
-              >
-                {phone}
-              </a>
-            </p>
-            <p className="text-sm text-black font-medium">
-              Email:
-              <a
-                href={`mail:${email}`}
-                className="text-[#4F772D] ml-1"
-              >
-                {email}
-              </a>
-            </p>
-            <p className="text-sm text-black font-medium">
-              Website:
-              <a
-                href={website}
-                target="_blank"
-                className="text-[#4F772D] ml-1"
-              >
-                {website}
-              </a>
-            </p>
-          </div>
-        </div>
-        <div className="flex flex-col mt-5">
-          <h4 className="text-black text-large font-semibold">
-            Photos of Past Work
-          </h4>
-          <div className="flex flex-row mt-2">
-            {/* <Image
-              src="/deck.jpeg"
-              height={300}
-              width={300}
-              alt="logo"
-              className="mr-2"
-            />
-            <div className="grid grid-cols-2 gap-2 w-full">
-              <div className="relative">
-                <Image
-                  alt="Mountains"
-                  src={"/deck.jpeg"}
-                  quality={100}
-                  fill
-                  style={{
-                    objectFit: "cover",
-                  }}
-                />
-              </div>
-              <div className="relative">
-                <Image
-                  alt="Mountains"
-                  src={"/deck.jpeg"}
-                  quality={100}
-                  fill
-                  style={{
-                    objectFit: "cover",
-                  }}
-                />
-              </div>
-              <div className="relative">
-                <Image
-                  alt="Mountains"
-                  src={"/deck.jpeg"}
-                  quality={100}
-                  fill
-                  style={{
-                    objectFit: "cover",
-                  }}
-                />
-              </div>
-              <div className="relative">
-                <Image
-                  alt="Mountains"
-                  src={"/deck.jpeg"}
-                  quality={100}
-                  fill
-                  style={{
-                    objectFit: "cover",
-                  }}
-                />
-              </div> */}
-            {/* </div> */}
-            <p className="text-black text-md">
-              No photos yet.
-            </p>
+          <div className="flex flex-col mt-2 gap-4">
+            <div className="flex flex-row space-x-1">
+              <IconPhone color="black" size={18} />
+              <p className="text-sm text-black font-medium">
+                Phone:
+                <a
+                  href={`tel:${phone}`}
+                  className="text-[#4F772D] ml-1"
+                >
+                  {phone}
+                </a>
+              </p>
+            </div>
+            <div className="flex flex-row space-x-1">
+              <IconMail color="black" size={18} />
+              <p className="text-sm text-black font-medium">
+                Email:
+                <a
+                  href={`mail:${email}`}
+                  className="text-[#4F772D] ml-1"
+                >
+                  {email}
+                </a>
+              </p>
+            </div>
+            <div className="flex flex-row space-x-1">
+              <IconWorldWww color="black" size={18} />
+              <p className="text-sm text-black font-medium">
+                Website:
+                <a
+                  href={website}
+                  target="_blank"
+                  className="text-[#4F772D] ml-1"
+                >
+                  {website}
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </section>
-      <section className="w-80 mt-3">
+      <section className="w-full lg:w-80 xl:w-96 mt-3">
         {uniqueRecommendations?.length > 0 && (
           <div className="border-2 border-[#31572C] rounded-md shadow-green-800 shadow-sm overflow-auto max-h-[600px]">
             {uniqueRecommendations?.map(
