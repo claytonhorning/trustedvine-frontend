@@ -22,7 +22,7 @@ export async function generateMetadata(
     description: `${provider?.name} - ${provider?.categories[0]} Service Provider in the Roaring Fork Valley`,
     openGraph: {
       images: [
-        `https://admin.trustedvine.com/media/${provider?.filename}`,
+        `${process.env.TRUSTEDVINE_ADMIN_URL}/media/${provider?.filename}`,
         ...previousImages,
       ],
       title: `${provider?.name}`,
