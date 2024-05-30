@@ -1,4 +1,3 @@
-import { IconAdjustmentsHorizontal } from "@tabler/icons-react";
 import Service from "@/components/service";
 import { redirect } from "next/navigation";
 import AutocompleteSearch from "@/components/ui/AutocompleteSearch";

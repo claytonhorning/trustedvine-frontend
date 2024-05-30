@@ -50,7 +50,7 @@ function AuthButton() {
   return (
     <>
       <a
-        className="bg-[#1877F2] p-2 rounded-md text-white font-medium text-xs flex flex-row items-center space-x-2 cursor-pointer"
+        className="bg-[#1877F2] p-2 rounded-md text-white font-medium text-xs flex flex-row items-center space-x-2 cursor-pointer max-w-32 sm:max-w-52"
         onClick={() => signIn("facebook")}
       >
         <Image

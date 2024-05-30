@@ -2,12 +2,36 @@ import ContractorListing from "@/components/contractorListing";
 import Link from "next/link";
 import Contractor from "@/components/contractor";
 import { shuffle } from "lodash";
+import { Metadata, ResolvingMetadata } from "next";
 
-type props = {
+type Props = {
   params: any;
 };
 
-export default async function Listing({ params }: props) {
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const previousImages =
+    (await parent).openGraph?.images || [];
+  const provider = await fetch(
+    `${process.env.TRUSTEDVINE_API_URL}/providers/${params?.id}`
+  ).then((res) => res.json());
+  return {
+    title: `${provider?.name}`,
+    description: `${provider?.name} - ${provider?.categories[0]} Service Provider in the Roaring Fork Valley`,
+    openGraph: {
+      images: [
+        `https://admin.trustedvine.com/media/${provider?.filename}`,
+        ...previousImages,
+      ],
+      title: `${provider?.name}`,
+      description: `${provider?.categories[0]} Service Provider`,
+    },
+  };
+}
+
+export default async function Listing({ params }: Props) {
   async function getData() {
     const options: RequestInit = {
       method: "GET",
@@ -121,7 +145,7 @@ export default async function Listing({ params }: props) {
       />
       <hr className="border-top-3 border-gray-300 mt-12" />
       <h4 className="mt-10 text-black text-large font-semibold">
-        Browse Other Plumbers
+        Browse Other {data?.categories[0]} Providers
       </h4>
       <div className="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-4 pb-10">
         {otherProviderData?.map((contractor: any) => {

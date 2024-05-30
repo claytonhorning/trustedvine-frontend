@@ -1,9 +1,25 @@
 import Contractor from "@/components/contractor";
 import Link from "next/link";
+import { Metadata, ResolvingMetadata } from "next";
 
-type props = {
+type Props = {
   searchParams: any;
 };
+
+export async function generateMetadata(
+  { searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const previousImages =
+    (await parent).openGraph?.images || [];
+  return {
+    title: `${searchParams?.category} Providers`,
+    description: `Search All ${searchParams?.category} Providers in the Roaring Fork Valley`,
+    openGraph: {
+      images: [...previousImages],
+    },
+  };
+}
 
 function toTitleCase(str: any) {
   return str.replace(/\w\S*/g, function (txt: any) {
@@ -32,7 +48,7 @@ async function getData(category: String) {
 
 export default async function Search({
   searchParams,
-}: props) {
+}: Props) {
   const data = await getData(searchParams?.category);
 
   const totalUniqueRecommenders = data.reduce(

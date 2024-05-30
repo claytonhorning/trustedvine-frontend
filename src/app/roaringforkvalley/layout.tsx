@@ -3,9 +3,12 @@ import Sidebar from "@/components/ui/sidebar";
 import Header from "@/components/ui/Header";
 
 export const metadata: Metadata = {
-  title: "TrustedVine | Roaring Fork Valley",
+  title: "Search for Roaring Fork Valley Services",
   description:
     "Find vetted home service and wellness professionals trusted by your network.",
+  openGraph: {
+    images: ["og-image.png"],
+  },
 };
 
 export default function RootLayout({
