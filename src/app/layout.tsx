@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "TrustedVine | Vetted Home Service Professionals",
   description:
-    "Find vetted home service and wellness professionals trusted by your friends and family.",
+    "Find vetted home service and wellness professionals trusted by your friends and family in your community.",
 };
 
 export default async function RootLayout({
