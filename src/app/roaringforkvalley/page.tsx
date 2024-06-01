@@ -1,6 +1,16 @@
 import Service from "@/components/service";
 import { redirect } from "next/navigation";
 import AutocompleteSearch from "@/components/ui/AutocompleteSearch";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Find Roaring Fork Valley Service Providers",
+  description:
+    "Find vetted home service and wellness professionals trusted by your network.",
+  openGraph: {
+    images: ["og-image.png"],
+  },
+};
 
 async function getData() {
   const options: RequestInit = {
