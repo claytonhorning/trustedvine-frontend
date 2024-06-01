@@ -8,7 +8,7 @@ export default function RootLayout({
 }>) {
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <div className="flex">
         <Sidebar />
         <main className="px-6 md:px-10 py-4 block container mx-auto max-w-7xl">
